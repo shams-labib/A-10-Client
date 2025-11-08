@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 import logo from "../../assets/logo.png";
+import userImg from "../../assets/user.png";
 import { AuthContext } from "../../Firebase and Login/Firebase content/Auth/AuthContext";
 import Loader from "../../Loader/Loader";
 
@@ -127,7 +128,7 @@ const Navbar = () => {
                   className="btn btn-ghost p-0 rounded-full"
                 >
                   <img
-                    src={user.photoURL || ""}
+                    src={user.photoURL || userImg}
                     alt="User"
                     className="w-10 h-10 rounded-full"
                   />
@@ -159,7 +160,7 @@ const Navbar = () => {
             </>
           ) : (
             <Link
-              to={"/register"}
+              to={"/login"}
               className="btn bg-gradient-to-r from-red-400 to-gray-400 text-white 
               hover:from-blue-500 hover:via-purple-500 hover:to-pink-500 
               transition-all duration-500 ease-in-out shadow-md hover:shadow-lg border-0"

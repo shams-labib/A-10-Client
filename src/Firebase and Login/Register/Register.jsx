@@ -2,13 +2,13 @@ import React, { useContext, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { LuEyeClosed } from "react-icons/lu";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Firebase content/Auth/AuthContext";
 
 const Register = () => {
   const { createUser, signInWithGoogle } = useContext(AuthContext);
-
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [tc, setTc] = useState(false);
 
@@ -23,6 +23,7 @@ const Register = () => {
     createUser(email, password)
       .then((data) => {
         console.log(data);
+        navigate("/");
       })
       .catch((err) => {
         console.log(err);
@@ -58,6 +59,7 @@ const Register = () => {
     signInWithGoogle()
       .then((data) => {
         console.log(data);
+        navigate("/");
       })
       .catch((err) => {
         console.log(err);

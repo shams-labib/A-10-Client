@@ -11,7 +11,7 @@ const Footer = () => {
         </span>
       </nav>
       <nav className="flex flex-col gap-4 text-left md:text-left">
-        <p className="font-medium text-md bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
+        <p className="font-medium  text-md bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent">
           At FoodieMart, we bring the world <br /> of flavors to your doorstep.
           Discover premium ingredients, authentic tastes, <br /> and a culinary
           journey like no other.
