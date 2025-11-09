@@ -17,11 +17,12 @@ const View = ({ food }) => {
   return (
     <div className="max-w-5xl mx-auto px-4 py-10">
       <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-6 md:p-10">
+        {/* Image */}
         <div className="relative group">
           <img
             src={foodImage}
             alt={foodName}
-            className="w-full h-64 md:h-96 object-cover rounded-xl shadow-lg transition-all duration-300"
+            className="w-full h-64 md:h-96 object-cover rounded-xl shadow-lg transition-all duration-300 group-hover:scale-105"
           />
 
           <span className="absolute top-4 right-4 bg-red-600 text-white text-sm md:text-base px-3 py-1 rounded-full shadow-lg flex items-center gap-1">
