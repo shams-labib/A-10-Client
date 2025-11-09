@@ -10,6 +10,7 @@ import AddReview from "../Profile Section/Add Review/AddReview";
 import MyReviewPage from "../Profile Section/My Review/MyReview";
 import PrivateRoute from "../Hooks/PrivateRoute/PrivateRoute";
 import Update from "../Profile Section/My Review/Update";
+import ViewDetails from "../Pages/ViewDetails/ViewDetails";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "/update/:id",
         element: <Update></Update>,
+      },
+      {
+        path: "/viewDetails/:id",
+        element: <ViewDetails></ViewDetails>,
       },
       {
         path: "/login",

@@ -39,7 +39,7 @@ const ReviewCard = ({ review }) => {
         </div>
         <div className="card-actions justify-end mt-4">
           <Link
-            to={`/reviews/${review._id}`}
+            to={`/viewDetails/${review._id}`}
             className="btn btn-sm bg-gradient-to-r from-amber-500 to-orange-600 text-white hover:from-amber-600 hover:to-orange-700 border-none rounded-lg"
           >
             View Details
