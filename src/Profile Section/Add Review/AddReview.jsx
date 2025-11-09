@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../Firebase and Login/Firebase content/Auth/AuthContext";
 import useAxiosSecure from "../../Hooks/AxiosSecure/AxiosSecure";
+import Swal from "sweetalert2";
 
 const AddReview = () => {
   const { user } = useContext(AuthContext);
@@ -38,7 +39,11 @@ const AddReview = () => {
     axiosSecure
       .post("/review-products", newData)
       .then((res) => {
-        console.log("Review submitted:", res.data);
+        Swal.fire({
+          title: "Good job!",
+          text: "Your reviews has been added to our website bro!",
+          icon: "success",
+        });
         e.target.reset();
       })
       .catch((err) => {
