@@ -38,7 +38,7 @@ const AddReview = () => {
 
     axiosSecure
       .post("/review-products", newData)
-      .then((res) => {
+      .then(() => {
         Swal.fire({
           title: "Good job!",
           text: "Your reviews has been added to our website bro!",
