@@ -2,11 +2,13 @@ import { createBrowserRouter } from "react-router";
 import RootLayout from "../Layout/RootLayout";
 import Errorpage from "../Pages/Errorpage/Errorpage";
 import Home from "../Components/Home/Home";
-import MyProducts from "../Pages/MyProducts/MyProducts";
 import Login from "../Firebase and Login/Login/Login";
 import Register from "../Firebase and Login/Register/Register";
 import AllReviews from "../Pages/All reviews/AllReviews";
 import MyReviews from "../Pages/My Reviews/myReviews";
+import AddReview from "../Profile Section/Add Review/AddReview";
+import MyReviewPage from "../Profile Section/My Review/MyReview";
+import PrivateRoute from "../Hooks/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -19,16 +21,24 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "/myProducts",
-        element: <MyProducts></MyProducts>,
-      },
-      {
         path: "/allreveiws",
         element: <AllReviews></AllReviews>,
       },
       {
+        path: "/add-review",
+        element: (
+          <PrivateRoute>
+            <AddReview></AddReview>
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "/myReview",
-        element: <MyReviews></MyReviews>,
+        element: (
+          <PrivateRoute>
+            <MyReviewPage></MyReviewPage>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",

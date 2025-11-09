@@ -23,7 +23,7 @@ const ReviewCard = ({ review }) => {
         <div className="flex items-center justify-between mt-3">
           <div className="flex items-center gap-2">
             <img
-              src={review.userPhoto}
+              src={review?.userPhoto || ""}
               alt={review.userName}
               className="w-8 h-8 rounded-full border"
             />

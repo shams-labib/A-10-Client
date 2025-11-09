@@ -27,6 +27,10 @@ const Register = () => {
       })
       .catch((err) => {
         console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: "Failed to login ⚠️",
+        });
       });
 
     if (!name || !email) {
@@ -63,6 +67,10 @@ const Register = () => {
       })
       .catch((err) => {
         console.log(err);
+        Swal.fire({
+          icon: "error",
+          title: "Failed to login⚠️",
+        });
       });
   };
 
@@ -119,9 +127,20 @@ const Register = () => {
               Password{" "}
             </label>
             <input
+              type={"password"}
+              placeholder="Enter your password"
+              className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-pink-300"
+            />
+          </div>
+          <div className="relative">
+            <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-200">
+              {" "}
+              Confirm Password{" "}
+            </label>
+            <input
               name="password"
               type={showPassword ? "text" : "password"}
-              placeholder="Enter your password"
+              placeholder="Confirm password"
               className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-pink-300"
             />
             <span
@@ -152,7 +171,7 @@ const Register = () => {
 
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-blue-500 to-purple-600 py-2 rounded-md text-white font-semibold hover:scale-105 transition-transform duration-300 shadow-md cursor-pointer"
+            className="w-full bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 border-none py-2 rounded-md text-white font-semibold hover:scale-105 transition-transform duration-300 shadow-md cursor-pointer"
           >
             Register 🚀
           </button>

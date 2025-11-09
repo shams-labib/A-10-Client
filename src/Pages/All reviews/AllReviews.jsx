@@ -27,7 +27,11 @@ const AllReviews = () => {
   }, [axiosSecure]);
 
   if (loading) {
-    return <Loader></Loader>;
+    return (
+      <div className="my-[40vh]">
+        <Loader></Loader>
+      </div>
+    );
   }
   if (error) {
     return (

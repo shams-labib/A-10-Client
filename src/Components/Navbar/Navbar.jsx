@@ -137,17 +137,17 @@ const Navbar = () => {
                 {open && (
                   <ul className="absolute right-0 mt-2 w-40 bg-base-100 shadow-lg rounded-lg menu">
                     <li>
-                      <Link to="/account" onClick={() => setOpen(false)}>
+                      <Link to="/add-review" onClick={() => setOpen(false)}>
                         Add Review
                       </Link>
                     </li>
                     <li>
-                      <Link to="/account" onClick={() => setOpen(false)}>
+                      <Link to="/myReview" onClick={() => setOpen(false)}>
                         My Review
                       </Link>
                     </li>
                     <li>
-                      <Link to="/account" onClick={() => setOpen(false)}>
+                      <Link to="/" onClick={() => setOpen(false)}>
                         My Favorites
                       </Link>
                     </li>

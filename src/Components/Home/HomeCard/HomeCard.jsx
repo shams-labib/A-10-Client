@@ -29,7 +29,11 @@ const HomeCard = () => {
   const sliceData = reviewsdata.slice(0, 6);
 
   if (loading) {
-    return <Loader></Loader>;
+    return (
+      <div className="my-[40vh]">
+        <Loader></Loader>
+      </div>
+    );
   }
   if (error) {
     return (
