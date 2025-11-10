@@ -53,6 +53,9 @@ const MyReviewPage = () => {
 
   return (
     <div className="min-h-screen bg-base-200 dark:bg-gray-950 p-6 text-gray-900 dark:text-gray-100 transition-colors duration-300 my-[50px] rounded-xl">
+      <div>
+        <title>My Review || FoodieMart</title>
+      </div>
       <div className="container mx-auto">
         <h2 className="text-2xl font-bold mb-6 text-center">My Reviews</h2>
 

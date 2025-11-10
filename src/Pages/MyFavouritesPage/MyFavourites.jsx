@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { FaStar, FaTrashAlt, FaMapMarkerAlt } from "react-icons/fa";
 
 const MyFavorites = ({ item, handleDelete }) => {
@@ -14,6 +15,11 @@ const MyFavorites = ({ item, handleDelete }) => {
 
   return (
     <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+      <div>
+        <Helmet>
+          <title>My Favorite || FoodieMart</title>
+        </Helmet>
+      </div>
       <figure>
         <img
           src={foodImage}

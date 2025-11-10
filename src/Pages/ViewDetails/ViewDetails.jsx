@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import useAxiosSecure from "../../Hooks/AxiosSecure/AxiosSecure";
 import View from "./View";
+import { Helmet } from "react-helmet-async";
 
 const ViewDetails = () => {
   const { id } = useParams();
@@ -18,6 +19,11 @@ const ViewDetails = () => {
 
   return (
     <div>
+      <div>
+        <Helmet>
+          <title>ViewDetails || FoodieMart</title>
+        </Helmet>
+      </div>
       {foodData.map((food) => (
         <View key={food._id} food={food}></View>
       ))}

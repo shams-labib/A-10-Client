@@ -5,6 +5,7 @@ import { LuEyeClosed } from "react-icons/lu";
 import { Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Firebase content/Auth/AuthContext";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { createUser, signInWithGoogle } = useContext(AuthContext);
@@ -76,6 +77,11 @@ const Register = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-8 bg-base-100">
+      <div>
+        <Helmet>
+          <title>Register || FoodieMart</title>
+        </Helmet>
+      </div>
       <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl w-full max-w-md border border-gray-100 dark:border-gray-700">
         <h2 className="text-3xl font-bold text-center mb-6 text-gray-800 dark:text-gray-100">
           Register

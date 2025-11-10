@@ -3,6 +3,7 @@ import useAxiosSecure from "../../Hooks/AxiosSecure/AxiosSecure";
 import ReviewCard from "../../Components/Home/ReviewsCard/ReviewCard";
 import { FaExclamationTriangle } from "react-icons/fa";
 import Loader from "../../Loader/Loader";
+import { Helmet } from "react-helmet-async";
 
 const AllReviews = () => {
   const axiosSecure = useAxiosSecure();
@@ -69,6 +70,11 @@ const AllReviews = () => {
 
   return (
     <div className="container mx-auto px-4 py-10">
+      <div>
+        <Helmet>
+          <title>All Reviews || FoodieMart</title>
+        </Helmet>
+      </div>
       <h1 className="text-3xl font-bold text-center text-gray-800 dark:text-gray-100 mb-6">
         All Reviews Section
       </h1>

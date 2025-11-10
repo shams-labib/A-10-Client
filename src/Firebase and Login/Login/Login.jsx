@@ -5,6 +5,7 @@ import { LuEyeClosed } from "react-icons/lu";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate, useLocation } from "react-router";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -51,6 +52,11 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-8 bg-base-100">
+      <div>
+        <Helmet>
+          <title>Login || FoodieMart</title>
+        </Helmet>
+      </div>
       <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl w-full max-w-md border border-gray-100 dark:border-gray-700">
         <h2 className="text-3xl font-bold text-center mb-6 text-gray-800 dark:text-gray-100">
           Login
