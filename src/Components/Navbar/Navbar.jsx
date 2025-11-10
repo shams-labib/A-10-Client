@@ -72,7 +72,7 @@ const Navbar = () => {
         My Favorites
       </NavLink>
 
-      <div className="flex items-center justify-between mt-2 bg-base-200 p-2 rounded-lg md:hidden">
+      <div className="flex items-center justify-between mt-2 bg-base-200 p-2 rounded-lg lg:hidden">
         <span className="text-sm font-medium">
           {theme === "dark" ? "Dark Mode" : "Light Mode"}
         </span>
