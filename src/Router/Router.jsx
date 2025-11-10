@@ -11,6 +11,7 @@ import MyReviewPage from "../Profile Section/My Review/MyReview";
 import PrivateRoute from "../Hooks/PrivateRoute/PrivateRoute";
 import Update from "../Profile Section/My Review/Update";
 import ViewDetails from "../Pages/ViewDetails/ViewDetails";
+import MyFavourites from "../Pages/MyFavouritesPage/MyFavourites";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <ViewDetails></ViewDetails>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/myFavouritePage/:id",
+        element: (
+          <PrivateRoute>
+            <MyFavourites></MyFavourites>
           </PrivateRoute>
         ),
       },

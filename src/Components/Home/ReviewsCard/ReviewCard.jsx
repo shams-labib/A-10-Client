@@ -3,7 +3,8 @@ import { IoMdStarOutline } from "react-icons/io";
 import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router";
 
-const ReviewCard = ({ review, handleFavorite }) => {
+const ReviewCard = ({ review }) => {
+  const handleFavorite = () => {};
   return (
     <div className="card bg-base-100 shadow-md rounded-2xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 dark:bg-gray-900 px-7 md:px-0">
       <figure className="relative">
@@ -13,7 +14,6 @@ const ReviewCard = ({ review, handleFavorite }) => {
           className="h-52 w-full object-cover"
         />
 
-        {/* ❤️ Favorite Button */}
         <button
           onClick={() => handleFavorite(review)}
           className="absolute cursor-pointer top-3 right-3 p-2 bg-white/80 backdrop-blur-sm rounded-full shadow hover:scale-110 transition-transform"
