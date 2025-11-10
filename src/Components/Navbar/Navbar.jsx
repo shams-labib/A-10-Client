@@ -59,6 +59,18 @@ const Navbar = () => {
       >
         My Review
       </NavLink>
+      <NavLink
+        to="/myFavouritePage"
+        className={({ isActive }) =>
+          `pb-1 transition-all duration-300 ${
+            isActive
+              ? "border-b-2 border-blue-500 text-blue-500"
+              : "hover:border-b-2 hover:border-blue-300"
+          }`
+        }
+      >
+        My Favorites
+      </NavLink>
     </>
   );
 
@@ -147,7 +159,10 @@ const Navbar = () => {
                       </Link>
                     </li>
                     <li>
-                      <Link to="/" onClick={() => setOpen(false)}>
+                      <Link
+                        to="/myFavouritePage"
+                        onClick={() => setOpen(false)}
+                      >
                         My Favorites
                       </Link>
                     </li>

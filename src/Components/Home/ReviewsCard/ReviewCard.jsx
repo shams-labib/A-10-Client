@@ -2,9 +2,50 @@ import React from "react";
 import { IoMdStarOutline } from "react-icons/io";
 import { FaHeart } from "react-icons/fa";
 import { Link } from "react-router";
+import useAxiosSecure from "../../../Hooks/AxiosSecure/AxiosSecure";
+import Swal from "sweetalert2";
 
 const ReviewCard = ({ review }) => {
-  const handleFavorite = () => {};
+  const axiosSecure = useAxiosSecure();
+
+  const handleFavorite = (review) => {
+    const foodName = review.foodName;
+    const foodImage = review.foodImage;
+    const restaurantName = review.restaurantName;
+    const location = review.location;
+    const rating = review.rating;
+    const reviewText = review.reviewText;
+    const userEmail = review.userEmail;
+    const userName = review.userName;
+    const userPhoto = review.userPhoto;
+    const createdAt = new Date();
+
+    const newData = {
+      foodName,
+      foodImage,
+      restaurantName,
+      location,
+      rating,
+      reviewText,
+      userEmail,
+      userName,
+      userPhoto,
+      createdAt,
+    };
+
+    axiosSecure
+      .post("/my-favourite", newData)
+      .then(() => {
+        Swal.fire({
+          title: "Congratulations!",
+          text: "Your favorites data has been added to the my Favorites page!",
+          icon: "success",
+        });
+      })
+      .catch((err) => {
+        console.error("Error submitting review:", err);
+      });
+  };
   return (
     <div className="card bg-base-100 shadow-md rounded-2xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 dark:bg-gray-900 px-7 md:px-0">
       <figure className="relative">
