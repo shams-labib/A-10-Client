@@ -10,8 +10,8 @@ import "aos/dist/aos.css";
 const RootLayout = () => {
   useEffect(() => {
     AOS.init({
-      duration: 2500, // animation duration in ms
-      once: true, // animation happens only once while scrolling
+      duration: 2500,
+      once: true,
     });
   }, []);
 

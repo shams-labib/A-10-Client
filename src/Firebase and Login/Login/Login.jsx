@@ -13,14 +13,13 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Location state থেকে আগের intended path নাও
   const from = location.state?.from || "/";
 
   const handleGoogleLogin = () => {
     signInWithGoogle()
       .then((data) => {
         console.log("Google login success:", data);
-        navigate(from, { replace: true }); // redirect to intended page
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         console.log("Google login error:", err);
