@@ -22,7 +22,10 @@ const HeroSection = () => {
               className="input input-bordered rounded-r-none w-full outline-none"
               placeholder="Enter your location"
             />
-            <button className="btn bg-red-600 text-white rounded-l-none hover:bg-red-700">
+            <button
+              className="btn bg-gradient-to-r from-amber-500 to-orange-600 text-white hover:from-amber-600 hover:to-orange-700 border-none rounded-lg
+              transition-all duration-500 ease-in-out shadow-md hover:shadow-lg border-0"
+            >
               Find Food
             </button>
           </div>

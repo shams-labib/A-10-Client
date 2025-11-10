@@ -1,36 +1,39 @@
-import React from "react";
+import React, { useContext } from "react";
 import { IoMdStarOutline } from "react-icons/io";
 import { FaHeart } from "react-icons/fa";
-import { Link } from "react-router";
+import { useNavigate } from "react-router";
 import useAxiosSecure from "../../../Hooks/AxiosSecure/AxiosSecure";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../../Firebase and Login/Firebase content/Auth/AuthContext";
 
 const ReviewCard = ({ review }) => {
   const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
 
   const handleFavorite = (review) => {
-    const foodName = review.foodName;
-    const foodImage = review.foodImage;
-    const restaurantName = review.restaurantName;
-    const location = review.location;
-    const rating = review.rating;
-    const reviewText = review.reviewText;
-    const userEmail = review.userEmail;
-    const userName = review.userName;
-    const userPhoto = review.userPhoto;
-    const createdAt = new Date();
+    if (!user) {
+      Swal.fire({
+        icon: "info",
+        title: "Login required",
+        text: "Please login to add favorites.",
+      });
+      return navigate("/login", {
+        state: { from: `/viewDetails/${review._id}` },
+      });
+    }
 
     const newData = {
-      foodName,
-      foodImage,
-      restaurantName,
-      location,
-      rating,
-      reviewText,
-      userEmail,
-      userName,
-      userPhoto,
-      createdAt,
+      foodName: review.foodName,
+      foodImage: review.foodImage,
+      restaurantName: review.restaurantName,
+      location: review.location,
+      rating: review.rating,
+      reviewText: review.reviewText,
+      userEmail: review.userEmail,
+      userName: review.userName,
+      userPhoto: review.userPhoto,
+      createdAt: new Date(),
     };
 
     axiosSecure
@@ -38,7 +41,7 @@ const ReviewCard = ({ review }) => {
       .then(() => {
         Swal.fire({
           title: "Congratulations!",
-          text: "Your favorites data has been added to the my Favorites page!",
+          text: "Your favorites data has been added to the My Favorites page!",
           icon: "success",
         });
       })
@@ -46,6 +49,19 @@ const ReviewCard = ({ review }) => {
         console.error("Error submitting review:", err);
       });
   };
+
+  const handleViewDetails = () => {
+    if (!user) {
+      // Redirect to login and save the intended page in state
+      return navigate("/login", {
+        state: { from: `/viewDetails/${review._id}` },
+      });
+    }
+
+    // Logged in → navigate to details page
+    navigate(`/viewDetails/${review._id}`);
+  };
+
   return (
     <div className="card bg-base-100 shadow-md rounded-2xl overflow-hidden hover:shadow-2xl transition-shadow duration-300 dark:bg-gray-900 px-7 md:px-0">
       <figure className="relative">
@@ -91,12 +107,12 @@ const ReviewCard = ({ review }) => {
         </div>
 
         <div className="card-actions justify-end mt-4">
-          <Link
-            to={`/viewDetails/${review._id}`}
+          <button
+            onClick={handleViewDetails}
             className="btn btn-sm bg-gradient-to-r from-amber-500 to-orange-600 text-white hover:from-amber-600 hover:to-orange-700 border-none rounded-lg"
           >
             View Details
-          </Link>
+          </button>
         </div>
       </div>
     </div>

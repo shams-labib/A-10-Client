@@ -3,19 +3,23 @@ import { AuthContext } from "../Firebase content/Auth/AuthContext";
 import { FaEye } from "react-icons/fa";
 import { LuEyeClosed } from "react-icons/lu";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate, useLocation } from "react-router";
 import Swal from "sweetalert2";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { signInWithGoogle, signInUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Location state থেকে আগের intended path নাও
+  const from = location.state?.from || "/";
 
   const handleGoogleLogin = () => {
     signInWithGoogle()
       .then((data) => {
         console.log("Google login success:", data);
-        navigate("/");
+        navigate(from, { replace: true }); // redirect to intended page
       })
       .catch((err) => {
         console.log("Google login error:", err);
@@ -34,7 +38,7 @@ const Login = () => {
     signInUser(email, password)
       .then((data) => {
         console.log(data);
-        navigate("/");
+        navigate(from, { replace: true }); // redirect to intended page
       })
       .catch((err) => {
         console.log(err);
