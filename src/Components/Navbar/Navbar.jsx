@@ -122,7 +122,7 @@ const Navbar = () => {
 
           <Link to={"/"} className="flex items-center justify-center gap-2">
             <img className="w-10 h-10 rounded-full" src={logo} alt="" />
-            <span className="lg:text-2xl text-sm font-bold bg-gradient-to-r from-pink-500 to-blue-500 bg-clip-text text-transparent">
+            <span className="lg:text-2xl text-sm font-bold bg-gradient-to-r from-amber-500 to-orange-600 bg-clip-text text-transparent">
               FoodieMart
             </span>
           </Link>

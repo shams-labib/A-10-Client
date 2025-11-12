@@ -50,7 +50,7 @@ const MyFavorites = ({ item, handleDelete }) => {
         <div className="card-actions justify-end mt-4">
           <button
             onClick={() => handleDelete(_id)}
-            className="btn btn-error btn-sm text-white flex items-center gap-2"
+            className="btn  btn-sm  bg-gradient-to-r from-amber-500 to-orange-600 text-white hover:from-amber-600 hover:to-orange-700 flex items-center gap-2"
           >
             <FaTrashAlt /> Remove
           </button>
